@@ -1,0 +1,36 @@
+﻿<Window x:Class="CursorTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CursorTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" d:DataContext="{d:DesignInstance local:CursorViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="16">
+            <RadioButton Content="Arrow" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.Arrow}" />
+            <RadioButton Content="Help" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.Help}" />
+            <RadioButton Content="Pen" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.Pen}" />
+            <RadioButton Content="UpArrow" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.UpArrow}" />
+            <RadioButton Content="Custom: Green" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.Green}" />
+            <RadioButton Content="Custom: Green with DPI scale" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.GreenWithDpiScale}" />
+            <RadioButton Content="Custom: Yellow" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.Yellow}" />
+            <RadioButton Content="Custom: Yellow with DPI scale" Command="{Binding SelectCursorCommand}"
+                         CommandParameter="{x:Static local:MyCursor.YellowWithDpiScale}" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="16">
+            <Button Cursor="{Binding CursorContent}">Custom cursor zone</Button>
+        </StackPanel>
+    </Grid>
+</Window>
